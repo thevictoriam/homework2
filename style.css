@@ -1,0 +1,268 @@
+/* Pogas piemers ar efketu */
+
+.totop {
+    display: none;
+    right: 20px;
+    text-decoration: none;
+    position: absolute;
+    background-color: #006d77;
+    color: aliceblue;
+    padding: 10px 20px;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    box-shadow: 5px 5px  rgba(0,0,0,0.6);
+    transition: all 200ms ease-in;
+}
+
+a.totop:hover {
+   box-shadow: 7px 7px 2px rgba(0,0,0,0.3);
+   transform: scale(1.1);
+}
+
+
+
+/* phone-screen */
+body {
+    background-color: aliceblue;
+    text-align: center;
+    margin: 0;
+}
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "brand brand"
+        "news tools";
+    /* grid-gap: 10px; */
+}
+header .brand {
+    grid-area: brand;
+    background: url("img/penguin_logo.png");
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+header .news {
+    grid-area: news;
+    border-right: 1px solid white;
+}
+header .tools {
+    grid-area: tools;
+}
+.navigation {
+    padding: 15px 10px;
+    background: rgb(207, 226, 226);
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.hero {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding: 30px 10px; 
+}
+.hero .feature {
+    display: none;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 2fr;
+    grid-template-areas:
+        "feature"
+        "ad"
+        "listing";
+    grid-gap: 10px;
+    text-align: justify;
+}
+.content p {
+    padding: 0 10px;
+}
+.content h2 {
+    padding: 0 10px;
+}
+.content .feature{
+    grid-area: feature;
+}
+.feature div {
+    text-align: center;
+}
+.content .feature img {
+    width: 75%;
+    height: auto;
+    border: solid 3px #006d77;
+    border-radius: 10%;
+}
+.feature ul {
+    margin-left: 8.5%;
+}
+.content .listing {
+    grid-area: listing;
+}
+.content .ad {
+    grid-area: ad;
+    background: url("img/ad.jpg");
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.content .ad a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+.listing img {
+    width: 85%;
+    height: auto;
+    border: solid 2px #006d77;
+    border-radius: 5%;
+    display: block;
+    margin: 0 auto;
+}
+.sidebar {
+    display: none;
+}
+.slidebar .video {
+    justify-content: space-around;
+    text-align: center;
+}
+.ad-second {
+    display: none;
+}
+
+footer {
+    background: rgb(207, 226, 226);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+
+/* tablet */
+@media (min-width: 576px)  {
+    body {
+        text-align: left;
+    }
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+        "brand news tools";
+        background: rgb(207, 226, 226);
+        text-align: center;
+    }
+    header .brand {
+        border-right: 1px solid white;
+        height: auto;
+    }
+    .hero {
+        display: grid;
+        grid-gap: 10px;
+    }
+    .hero .feature {
+        display: block;
+    }
+    .content {
+        /* grid-template-rows: 2fr 4fr;  */
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+        "feature ad"
+        "listing listing";
+    }
+    .content .feature img {
+        width: 75%;
+    }
+    .content .ad {
+        background: url("img/ad_tablet.jpg");
+        grid-area: ad;
+        background-position: top;
+        background-size: contain;
+        position: relative;
+        margin-right: 10px;
+    }
+    .sidebar {
+        display: block;
+        background-color: aliceblue;
+        padding: 20px 10px;
+    }
+    .sidebar .video {
+        justify-content: space-between;
+        text-align: center;
+    }
+    .video iframe {
+        padding: 10px;
+        height: auto;
+    }
+
+}
+
+/* laptop-desktop */
+@media (min-width: 992px)  {
+    body {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        /* grid-template-rows: auto 2fr 4fr auto; */
+        grid-template-areas: 
+        "header header"
+        "hero ad-second"
+        "content sidebar"
+        "footer footer";
+    }
+    header {
+        grid-area: header;
+        margin-bottom: 50px;
+        
+    }
+    .hero {
+        grid-area: hero;
+        grid-template-columns: 2fr 1fr;
+    }
+    .ad-second {
+        grid-area: ad-second;
+        display: block;
+        background: url("img/ad.jpg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    .content {
+        grid-area: content; 
+        grid-template-areas: 
+        "feature listing";
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: none;
+    }
+    .content .feature img {
+        width: 95%;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+    }
+    .ad {
+        display: none;
+    }
+    .totop {
+        display: block;
+    }
+    footer {
+        grid-area: footer;
+        margin-top: 50px;
+    }
+}
+
+
+
+
+
